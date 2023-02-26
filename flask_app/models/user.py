@@ -75,7 +75,7 @@ class User:
             flash("Last name must be at least two characters", "register")
             is_valid = False
         if len(registrant['city']) < 2:
-            flash("Last name must be at least two characters", "register")
+            flash("City must be at least two characters", "register")
             is_valid = False
         if len(registrant['state']) < 2:
             flash("State must be at least two characters", "register")
