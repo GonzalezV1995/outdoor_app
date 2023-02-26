@@ -24,14 +24,14 @@ class User:
 #Create
     @classmethod
     def save(cls,data):
-        query ="""INSERT INTO user (first_name, last_name, email, city, state, password) 
+        query ="""INSERT INTO users (first_name, last_name, email, city, state, password) 
             VALUES (%(first_name)s, %(last_name)s, %(email)s, %(city)s, %(state)s, %(password)s);"""
         return connectToMySQL(cls.db).query_db(query,data)
 
 #Read
     @classmethod
     def getById(cls, data):
-        query = "SELECT * FROM user WHERE id = %(id)s;"
+        query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query,data)
         print(results)
         return cls(results[0])
@@ -39,14 +39,14 @@ class User:
     @classmethod
     def getByEmail(cls, data):
         print(data)
-        query = "SELECT * FROM user WHERE email = %(email)s;"
+        query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(cls.db).query_db(query,data)
         print (results)
         return results[0]
 
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM user;"
+        query = "SELECT * FROM users;"
         results = connectToMySQL(cls.db).query_db(query)
         registrants = []
         for row in results:
@@ -62,7 +62,7 @@ class User:
     @staticmethod
     def validate_registration(registrant):
         is_valid = True
-        query = "SELECT * FROM user WHERE email = %(email)s;"
+        query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(User.db).query_db(query,registrant)
         print(results)
         if len(results) >=1:
