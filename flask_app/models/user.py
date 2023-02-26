@@ -74,6 +74,12 @@ class User:
         if len(registrant['last_name']) < 2:
             flash("Last name must be at least two characters", "register")
             is_valid = False
+        if len(registrant['city']) < 2:
+            flash("Last name must be at least two characters", "register")
+            is_valid = False
+        if len(registrant['state']) < 2:
+            flash("State must be at least two characters", "register")
+            is_valid = False
         if not EMAIL_REGEX.match(registrant['email']):
             flash("Invalid email format", "register")
             is_valid = False
