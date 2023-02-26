@@ -54,6 +54,8 @@ class Activity:
                     "first_name":activity_all['first_name'],
                     "last_name":activity_all['last_name'],
                     "email":activity_all['email'],
+                    "city":activity_all['city'],
+                    "state":activity_all['state'],
                     "password": '',
                     "created_at":activity_all['user.created_at'],
                     "updated_at":activity_all['user.updated_at']
